@@ -1,0 +1,22 @@
+.claim-book-page {
+	display: flex;
+	gap: 1em;
+
+	.group1 {
+		flex: 1;
+	}
+	&__form {
+		flex-basis: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+	}
+
+	&__json {
+		width: 50%;
+		position: relative;
+		span {
+			position: fixed;
+		}
+	}
+}

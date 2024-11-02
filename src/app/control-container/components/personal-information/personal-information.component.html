@@ -1,0 +1,30 @@
+@if (form) {
+	<div class="personal-information">
+		<h1 class="personal-information__title">Informacion personal</h1>
+		<form class="personal-information__form" [formGroup]="form">
+			<tui-input tuiTextfieldSize="m" formControlName="names">
+				Nombres
+				<input tuiTextfieldLegacy type="text" />
+			</tui-input>
+			<tui-error formControlName="names" [error]="[] | tuiFieldError | async" />
+
+			<tui-input tuiTextfieldSize="m" formControlName="paternalSurname">
+				Apellido Paterno
+				<input tuiTextfieldLegacy type="text" />
+			</tui-input>
+			<tui-error formControlName="paternalSurname" [error]="[] | tuiFieldError | async" />
+
+			<tui-input tuiTextfieldSize="m" formControlName="maternalSurname">
+				Apellido Materno
+				<input tuiTextfieldLegacy type="text" />
+			</tui-input>
+			<tui-error formControlName="maternalSurname" [error]="[] | tuiFieldError | async" />
+
+			<tui-input tuiTextfieldSize="m" formControlName="dni">
+				Nro. DNI
+				<input tuiTextfieldLegacy type="number" />
+			</tui-input>
+			<tui-error formControlName="dni" [error]="[] | tuiFieldError | async" />
+		</form>
+	</div>
+}

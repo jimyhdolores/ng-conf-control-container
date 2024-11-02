@@ -1,0 +1,15 @@
+<div class="detail-claim">
+	<h1 class="detail-claim__title">Detalle del Reclamo</h1>
+	@if (form) {
+	<form class="detail-claim__form" [formGroup]="form">
+		<tui-input tuiTextfieldSize="m" formControlName="product">
+			Producto
+			<input tuiTextfieldLegacy type="text" />
+		</tui-input>
+		<tui-error formControlName="product" [error]="[] | tuiFieldError | async" />
+
+		<tui-textarea formControlName="claim">Detalle del reclamo</tui-textarea>
+		<tui-error formControlName="claim" [error]="[] | tuiFieldError | async" />
+	</form>
+	}
+</div>

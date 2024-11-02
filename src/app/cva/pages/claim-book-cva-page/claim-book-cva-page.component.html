@@ -1,0 +1,15 @@
+<h1>Control Value Accesor</h1>
+
+<div class="claim-book-page">
+	<form [formGroup]="form" class="claim-book-page__form" (ngSubmit)="save()">
+		<app-personal-information-cva formControlName="personalInformation" />
+		<app-contact-information-cva formControlName="contactInformation" />
+		<app-detail-claim-cva formControlName="detailClaim" />
+
+		<button size="s" tuiButton type="submit">Guardar</button>
+	</form>
+
+	<section class="claim-book-page__json">
+		<span>{{ form.value | json }}</span>
+	</section>
+</div>

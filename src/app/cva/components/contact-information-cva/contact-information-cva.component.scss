@@ -1,0 +1,11 @@
+.contact-information {
+	&__title {
+		color: var(--tui-text-secondary);
+	}
+
+	&__form {
+		tui-input {
+			margin-bottom: 1em;
+		}
+	}
+}
