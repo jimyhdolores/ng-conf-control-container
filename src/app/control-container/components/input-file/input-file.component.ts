@@ -1,4 +1,4 @@
-import { AsyncPipe, NgForOf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import type { AbstractControl, ValidatorFn } from '@angular/forms';
 import { ControlContainer, FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -18,7 +18,7 @@ const maxFilesLength = (maxLength: number): ValidatorFn => {
 
 @Component({
     selector: 'app-input-file',
-    imports: [AsyncPipe, NgForOf, ReactiveFormsModule, TuiError, TuiFieldErrorPipe, TuiFiles],
+    imports: [AsyncPipe, ReactiveFormsModule, TuiError, TuiFieldErrorPipe, TuiFiles],
     templateUrl: './input-file.component.html',
     styleUrl: './input-file.component.scss'
 })
