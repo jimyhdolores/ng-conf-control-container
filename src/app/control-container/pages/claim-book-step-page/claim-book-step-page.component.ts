@@ -8,18 +8,19 @@ import { filter, of } from 'rxjs';
 import { InputFileComponent } from '../../components/input-file/input-file.component';
 
 @Component({
-	selector: 'app-claim-book-step-page',
-	standalone: true,
-	imports: [RouterOutlet, RouterLink, TuiButton, ReactiveFormsModule, JsonPipe, InputFileComponent],
-	templateUrl: './claim-book-step-page.component.html',
-	styleUrl: './claim-book-step-page.component.scss',
-	providers: [
-		tuiValidationErrorsProvider({
-			required: 'Este campo es requerido',
-			email: 'Ingrese un email valido',
-			minlength: ({ requiredLength }: { requiredLength: string }) => of(`Logitud minima — ${requiredLength}`),
-		}),
-	],
+    selector: 'app-claim-book-step-page',
+    imports: [RouterOutlet, RouterLink, TuiButton, ReactiveFormsModule, JsonPipe, InputFileComponent],
+    templateUrl: './claim-book-step-page.component.html',
+    styleUrl: './claim-book-step-page.component.scss',
+    providers: [
+        tuiValidationErrorsProvider({
+            required: 'Este campo es requerido',
+            email: 'Ingrese un email valido',
+            minlength: ({ requiredLength }: {
+                requiredLength: string;
+            }) => of(`Logitud minima — ${requiredLength}`),
+        }),
+    ]
 })
 export default class ClaimBookStepPageComponent {
 	private readonly _fb = inject(NonNullableFormBuilder);

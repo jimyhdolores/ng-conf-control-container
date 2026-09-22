@@ -10,25 +10,26 @@ import { PersonalInformationCvaComponent } from '../../components/personal-infor
 import { IClaimCvaForm } from '../../models/cva-model-fomr.interface';
 
 @Component({
-	selector: 'app-claim-book-cva-page',
-	standalone: true,
-	imports: [
-		PersonalInformationCvaComponent,
-		DetailClaimCvaComponent,
-		ContactInformationCvaComponent,
-		TuiButton,
-		ReactiveFormsModule,
-		JsonPipe,
-	],
-	providers: [
-		tuiValidationErrorsProvider({
-			required: 'Este campo es requerido',
-			email: 'Ingrese un email valido',
-			minlength: ({ requiredLength }: { requiredLength: string }) => of(`Logitud minima — ${requiredLength}`),
-		}),
-	],
-	templateUrl: './claim-book-cva-page.component.html',
-	styleUrl: './claim-book-cva-page.component.scss',
+    selector: 'app-claim-book-cva-page',
+    imports: [
+        PersonalInformationCvaComponent,
+        DetailClaimCvaComponent,
+        ContactInformationCvaComponent,
+        TuiButton,
+        ReactiveFormsModule,
+        JsonPipe,
+    ],
+    providers: [
+        tuiValidationErrorsProvider({
+            required: 'Este campo es requerido',
+            email: 'Ingrese un email valido',
+            minlength: ({ requiredLength }: {
+                requiredLength: string;
+            }) => of(`Logitud minima — ${requiredLength}`),
+        }),
+    ],
+    templateUrl: './claim-book-cva-page.component.html',
+    styleUrl: './claim-book-cva-page.component.scss'
 })
 export class ClaimBookCvaPageComponent {
 	private readonly _fb = inject(NonNullableFormBuilder);

@@ -17,11 +17,10 @@ const maxFilesLength = (maxLength: number): ValidatorFn => {
 };
 
 @Component({
-	selector: 'app-input-file',
-	standalone: true,
-	imports: [AsyncPipe, NgForOf, ReactiveFormsModule, TuiError, TuiFieldErrorPipe, TuiFiles],
-	templateUrl: './input-file.component.html',
-	styleUrl: './input-file.component.scss',
+    selector: 'app-input-file',
+    imports: [AsyncPipe, NgForOf, ReactiveFormsModule, TuiError, TuiFieldErrorPipe, TuiFiles],
+    templateUrl: './input-file.component.html',
+    styleUrl: './input-file.component.scss'
 })
 export class InputFileComponent {
 	private readonly controlContainer = inject(ControlContainer);

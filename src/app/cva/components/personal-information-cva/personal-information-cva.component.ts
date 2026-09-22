@@ -16,23 +16,22 @@ import { TuiFieldErrorPipe } from '@taiga-ui/kit';
 import { TuiInputModule } from '@taiga-ui/legacy';
 import { IPersonalInformationCva } from '../../models/cva-model.interface';
 @Component({
-	selector: 'app-personal-information-cva',
-	standalone: true,
-	imports: [TuiInputModule, ReactiveFormsModule, TuiFieldErrorPipe, TuiError, TuiLabel, AsyncPipe],
-	templateUrl: './personal-information-cva.component.html',
-	styleUrl: './personal-information-cva.component.scss',
-	providers: [
-		{
-			provide: NG_VALUE_ACCESSOR,
-			useExisting: forwardRef(() => PersonalInformationCvaComponent),
-			multi: true,
-		},
-		{
-			provide: NG_VALIDATORS,
-			useExisting: forwardRef(() => PersonalInformationCvaComponent),
-			multi: true,
-		},
-	],
+    selector: 'app-personal-information-cva',
+    imports: [TuiInputModule, ReactiveFormsModule, TuiFieldErrorPipe, TuiError, TuiLabel, AsyncPipe],
+    templateUrl: './personal-information-cva.component.html',
+    styleUrl: './personal-information-cva.component.scss',
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => PersonalInformationCvaComponent),
+            multi: true,
+        },
+        {
+            provide: NG_VALIDATORS,
+            useExisting: forwardRef(() => PersonalInformationCvaComponent),
+            multi: true,
+        },
+    ]
 })
 export class PersonalInformationCvaComponent implements ControlValueAccessor, Validator, OnInit {
 	private readonly _fb = inject(NonNullableFormBuilder);

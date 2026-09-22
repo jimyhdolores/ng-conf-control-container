@@ -17,23 +17,22 @@ import { TuiInputModule, TuiTextareaModule } from '@taiga-ui/legacy';
 import { IContactInformationCva } from '../../models/cva-model.interface';
 
 @Component({
-	selector: 'app-contact-information-cva',
-	standalone: true,
-	imports: [TuiInputModule, TuiTextareaModule, ReactiveFormsModule, TuiError, TuiFieldErrorPipe, AsyncPipe],
-	templateUrl: './contact-information-cva.component.html',
-	styleUrl: './contact-information-cva.component.scss',
-	providers: [
-		{
-			provide: NG_VALUE_ACCESSOR,
-			useExisting: forwardRef(() => ContactInformationCvaComponent),
-			multi: true,
-		},
-		{
-			provide: NG_VALIDATORS,
-			useExisting: forwardRef(() => ContactInformationCvaComponent),
-			multi: true,
-		},
-	],
+    selector: 'app-contact-information-cva',
+    imports: [TuiInputModule, TuiTextareaModule, ReactiveFormsModule, TuiError, TuiFieldErrorPipe, AsyncPipe],
+    templateUrl: './contact-information-cva.component.html',
+    styleUrl: './contact-information-cva.component.scss',
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => ContactInformationCvaComponent),
+            multi: true,
+        },
+        {
+            provide: NG_VALIDATORS,
+            useExisting: forwardRef(() => ContactInformationCvaComponent),
+            multi: true,
+        },
+    ]
 })
 export class ContactInformationCvaComponent implements ControlValueAccessor, Validator, OnInit {
 	private readonly _fb = inject(NonNullableFormBuilder);

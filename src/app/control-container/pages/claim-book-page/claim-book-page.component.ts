@@ -10,26 +10,27 @@ import { InputFileComponent } from '../../components/input-file/input-file.compo
 import { PersonalInformationComponent } from '../../components/personal-information/personal-information.component';
 
 @Component({
-	selector: 'app-claim-book-page',
-	standalone: true,
-	imports: [
-		PersonalInformationComponent,
-		DetailClaimComponent,
-		ContactInformationComponent,
-		TuiButton,
-		ReactiveFormsModule,
-		JsonPipe,
-		InputFileComponent,
-	],
-	providers: [
-		tuiValidationErrorsProvider({
-			required: 'Este campo es requerido',
-			email: 'Ingrese un email valido',
-			minlength: ({ requiredLength }: { requiredLength: string }) => of(`Logitud minima — ${requiredLength}`),
-		}),
-	],
-	templateUrl: './claim-book-page.component.html',
-	styleUrl: './claim-book-page.component.scss',
+    selector: 'app-claim-book-page',
+    imports: [
+        PersonalInformationComponent,
+        DetailClaimComponent,
+        ContactInformationComponent,
+        TuiButton,
+        ReactiveFormsModule,
+        JsonPipe,
+        InputFileComponent,
+    ],
+    providers: [
+        tuiValidationErrorsProvider({
+            required: 'Este campo es requerido',
+            email: 'Ingrese un email valido',
+            minlength: ({ requiredLength }: {
+                requiredLength: string;
+            }) => of(`Logitud minima — ${requiredLength}`),
+        }),
+    ],
+    templateUrl: './claim-book-page.component.html',
+    styleUrl: './claim-book-page.component.scss'
 })
 export class ClaimBookPageComponent {
 	private readonly _fb = inject(NonNullableFormBuilder);

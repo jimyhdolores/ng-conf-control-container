@@ -16,23 +16,22 @@ import { TuiFieldErrorPipe } from '@taiga-ui/kit';
 import { TuiInputModule, TuiTextareaModule } from '@taiga-ui/legacy';
 import { IDetailClaimCva } from '../../models/cva-model.interface';
 @Component({
-	selector: 'app-detail-claim-cva',
-	standalone: true,
-	imports: [TuiInputModule, TuiTextareaModule, ReactiveFormsModule, TuiError, TuiFieldErrorPipe, AsyncPipe],
-	templateUrl: './detail-claim-cva.component.html',
-	styleUrl: './detail-claim-cva.component.scss',
-	providers: [
-		{
-			provide: NG_VALUE_ACCESSOR,
-			useExisting: forwardRef(() => DetailClaimCvaComponent),
-			multi: true,
-		},
-		{
-			provide: NG_VALIDATORS,
-			useExisting: forwardRef(() => DetailClaimCvaComponent),
-			multi: true,
-		},
-	],
+    selector: 'app-detail-claim-cva',
+    imports: [TuiInputModule, TuiTextareaModule, ReactiveFormsModule, TuiError, TuiFieldErrorPipe, AsyncPipe],
+    templateUrl: './detail-claim-cva.component.html',
+    styleUrl: './detail-claim-cva.component.scss',
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => DetailClaimCvaComponent),
+            multi: true,
+        },
+        {
+            provide: NG_VALIDATORS,
+            useExisting: forwardRef(() => DetailClaimCvaComponent),
+            multi: true,
+        },
+    ]
 })
 export class DetailClaimCvaComponent implements ControlValueAccessor, Validator, OnInit {
 	private readonly _fb = inject(NonNullableFormBuilder);
