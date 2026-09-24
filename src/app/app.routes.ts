@@ -35,17 +35,24 @@ export const routes: Routes = [
 					{
 						path: 'personal-information',
 						loadComponent: () =>
-							import('./control-container/components/personal-information/personal-information.component'),
+							import('./control-container/components/personal-information/personal-information.component').then(
+								(m) => m.PersonalInformationComponent
+							),
 					},
 
 					{
 						path: 'contact-information',
 						loadComponent: () =>
-							import('./control-container/components/contact-information/contact-information.component'),
+							import('./control-container/components/contact-information/contact-information.component').then(
+								(m) => m.ContactInformationComponent
+							),
 					},
 					{
 						path: 'detail-claim',
-						loadComponent: () => import('./control-container/components/detail-claim/detail-claim.component'),
+						loadComponent: () =>
+							import('./control-container/components/detail-claim/detail-claim.component').then(
+								(m) => m.DetailClaimComponent
+							),
 					},
 					{
 						path: '',
