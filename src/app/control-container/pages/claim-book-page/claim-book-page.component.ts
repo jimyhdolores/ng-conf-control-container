@@ -1,35 +1,31 @@
 import { JsonPipe } from '@angular/common';
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TuiButton, tuiValidationErrorsProvider } from '@taiga-ui/core';
 import { ContactInformationComponent } from '../../components/contact-information/contact-information.component';
 import { DetailClaimComponent } from '../../components/detail-claim/detail-claim.component';
-import { InputFileComponent } from '../../components/input-file/input-file.component';
 import { PersonalInformationComponent } from '../../components/personal-information/personal-information.component';
 
 @Component({
-    selector: 'app-claim-book-page',
-    imports: [
-        PersonalInformationComponent,
-        DetailClaimComponent,
-        ContactInformationComponent,
-        TuiButton,
-        ReactiveFormsModule,
-        JsonPipe,
-        InputFileComponent,
-    ],
-    providers: [
-        tuiValidationErrorsProvider({
-            required: 'Este campo es requerido',
-            email: 'Ingrese un email valido',
-            minlength: ({ requiredLength }: {
-                requiredLength: string;
-            }) => `Logitud minima — ${requiredLength}`,
-        }),
-    ],
-    templateUrl: './claim-book-page.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    styleUrl: './claim-book-page.component.scss'
+	selector: 'app-claim-book-page',
+	imports: [
+		PersonalInformationComponent,
+		DetailClaimComponent,
+		ContactInformationComponent,
+		TuiButton,
+		ReactiveFormsModule,
+		JsonPipe,
+	],
+	providers: [
+		tuiValidationErrorsProvider({
+			required: 'Este campo es requerido',
+			email: 'Ingrese un email valido',
+			minlength: ({ requiredLength }: { requiredLength: string }) => `Logitud minima — ${requiredLength}`,
+		}),
+	],
+	templateUrl: './claim-book-page.component.html',
+	changeDetection: ChangeDetectionStrategy.Eager,
+	styleUrl: './claim-book-page.component.scss',
 })
 export class ClaimBookPageComponent {
 	private readonly _fb = inject(NonNullableFormBuilder);
