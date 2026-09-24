@@ -1,5 +1,5 @@
 <div class="claim-book-page">
-	<form [formGroup]="form" class="claim-book-page__form" (ngSubmit)="save()">
+	<form class="claim-book-page__form" (submit)="save()">
 		<app-personal-information />
 		<app-contact-information />
 		<app-detail-claim />
@@ -8,7 +8,7 @@
 
 	<section class="claim-book-page__json">
 		<span>
-			{{ form.value | json }}
+			{{ value() | json }}
 		</span>
 	</section>
 </div>

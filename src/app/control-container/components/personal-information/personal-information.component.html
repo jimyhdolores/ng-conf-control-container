@@ -1,30 +1,28 @@
-@if (form) {
-	<div class="personal-information">
-		<h1 class="personal-information__title">Informacion personal</h1>
-		<form class="personal-information__form" [formGroup]="form">
-			<tui-textfield tuiTextfieldSize="m">
-				<label tuiLabel>Nombres</label>
-				<input tuiInput formControlName="names" type="text" />
-			</tui-textfield>
-			<tui-error formControlName="names" />
+<div class="personal-information">
+	<h1 class="personal-information__title">Informacion personal</h1>
+	<div class="personal-information__form">
+		<tui-textfield tuiTextfieldSize="m">
+			<label tuiLabel>Nombres</label>
+			<input tuiInput [formField]="form.personalInformation.names" type="text" />
+		</tui-textfield>
+		<tui-error [formField]="form.personalInformation.names" />
 
-			<tui-textfield tuiTextfieldSize="m">
-				<label tuiLabel>Apellido Paterno</label>
-				<input tuiInput formControlName="paternalSurname" type="text" />
-			</tui-textfield>
-			<tui-error formControlName="paternalSurname" />
+		<tui-textfield tuiTextfieldSize="m">
+			<label tuiLabel>Apellido Paterno</label>
+			<input tuiInput [formField]="form.personalInformation.paternalSurname" type="text" />
+		</tui-textfield>
+		<tui-error [formField]="form.personalInformation.paternalSurname" />
 
-			<tui-textfield tuiTextfieldSize="m">
-				<label tuiLabel>Apellido Materno</label>
-				<input tuiInput formControlName="maternalSurname" type="text" />
-			</tui-textfield>
-			<tui-error formControlName="maternalSurname" />
+		<tui-textfield tuiTextfieldSize="m">
+			<label tuiLabel>Apellido Materno</label>
+			<input tuiInput [formField]="form.personalInformation.maternalSurname" type="text" />
+		</tui-textfield>
+		<tui-error [formField]="form.personalInformation.maternalSurname" />
 
-			<tui-textfield tuiTextfieldSize="m">
-				<label tuiLabel>Nro. DNI</label>
-				<input tuiInput formControlName="dni" type="number" />
-			</tui-textfield>
-			<tui-error formControlName="dni" />
-		</form>
+		<tui-textfield tuiTextfieldSize="m">
+			<label tuiLabel>Nro. DNI</label>
+			<input tuiInput [formField]="form.personalInformation.dni" type="text" inputmode="numeric" />
+		</tui-textfield>
+		<tui-error [formField]="form.personalInformation.dni" />
 	</div>
-}
+</div>

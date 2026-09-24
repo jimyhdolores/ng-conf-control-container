@@ -1,53 +1,20 @@
 import { JsonPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { TuiButton, tuiValidationErrorsProvider } from '@taiga-ui/core';
+import { Component, inject } from '@angular/core';
+import { TuiButton } from '@taiga-ui/core';
+import { ClaimBookForm } from '../../claim-book.form';
 import { ContactInformationComponent } from '../../components/contact-information/contact-information.component';
 import { DetailClaimComponent } from '../../components/detail-claim/detail-claim.component';
 import { PersonalInformationComponent } from '../../components/personal-information/personal-information.component';
 
 @Component({
 	selector: 'app-claim-book-page',
-	imports: [
-		PersonalInformationComponent,
-		DetailClaimComponent,
-		ContactInformationComponent,
-		TuiButton,
-		ReactiveFormsModule,
-		JsonPipe,
-	],
-	providers: [
-		tuiValidationErrorsProvider({
-			required: 'Este campo es requerido',
-			email: 'Ingrese un email valido',
-			minlength: ({ requiredLength }: { requiredLength: string }) => `Logitud minima — ${requiredLength}`,
-		}),
-	],
+	imports: [PersonalInformationComponent, DetailClaimComponent, ContactInformationComponent, TuiButton, JsonPipe],
+	providers: [ClaimBookForm],
 	templateUrl: './claim-book-page.component.html',
-	changeDetection: ChangeDetectionStrategy.Eager,
 	styleUrl: './claim-book-page.component.scss',
 })
 export class ClaimBookPageComponent {
-	private readonly _fb = inject(NonNullableFormBuilder);
+	protected readonly value = inject(ClaimBookForm).value;
 
-	form = this._fb.group({
-		files: {},
-		personalInformation: this._fb.group({
-			names: ['', Validators.required],
-			paternalSurname: ['', Validators.required],
-			maternalSurname: ['', Validators.required],
-			dni: ['', [Validators.required, Validators.minLength(8)]],
-		}),
-		contactInformation: this._fb.group({
-			email: ['', [Validators.required, Validators.email]],
-			phone: ['', Validators.required],
-			address: ['', Validators.required],
-		}),
-		detailClaim: this._fb.group({
-			product: ['', Validators.required],
-			claim: ['', Validators.required],
-		}),
-	});
-
-	save() {}
+	save(): void {}
 }

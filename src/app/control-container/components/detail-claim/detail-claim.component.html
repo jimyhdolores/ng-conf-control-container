@@ -1,16 +1,15 @@
 <div class="detail-claim">
 	<h1 class="detail-claim__title">Detalle del Reclamo</h1>
-	@if (form) {
-		<form class="detail-claim__form" [formGroup]="form">
-			<tui-textfield tuiTextfieldSize="m">
-				<label tuiLabel>Producto</label>
-				<input tuiInput formControlName="product" type="text" />
-			</tui-textfield>
+	<div class="detail-claim__form">
+		<tui-textfield tuiTextfieldSize="m">
+			<label tuiLabel>Producto</label>
+			<input tuiInput [formField]="form.detailClaim.product" type="text" />
+		</tui-textfield>
 
-			<tui-textfield>
-				<label tuiLabel>Detalle del reclamo</label>
-				<textarea tuiTextarea formControlName="claim"></textarea>
-			</tui-textfield>
-		</form>
-	}
+		<tui-textfield>
+			<label tuiLabel>Detalle del reclamo</label>
+			<textarea tuiTextarea [formField]="form.detailClaim.claim"></textarea>
+		</tui-textfield>
+		<app-input-file />
+	</div>
 </div>

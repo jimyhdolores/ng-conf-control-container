@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { TuiButton } from '@taiga-ui/core';
 
@@ -13,7 +13,6 @@ import { TuiButton } from '@taiga-ui/core';
 
 		<router-outlet />
 	`,
-    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [RouterOutlet, TuiButton, RouterLink]
 })
 export class ControlContainerComponent implements OnInit {

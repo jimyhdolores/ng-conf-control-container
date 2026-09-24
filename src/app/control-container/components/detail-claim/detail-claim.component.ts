@@ -1,19 +1,16 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
-import { ControlContainer, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormField } from '@angular/forms/signals';
 import { TuiInput } from '@taiga-ui/core';
 import { TuiTextarea } from '@taiga-ui/kit';
+import { ClaimBookForm } from '../../claim-book.form';
+import { InputFileComponent } from '../input-file/input-file.component';
+
 @Component({
-    selector: 'app-detail-claim',
-    imports: [TuiInput, TuiTextarea, ReactiveFormsModule],
-    templateUrl: './detail-claim.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    styleUrl: './detail-claim.component.scss'
+	selector: 'app-detail-claim',
+	imports: [TuiInput, TuiTextarea, FormField, InputFileComponent],
+	templateUrl: './detail-claim.component.html',
+	styleUrl: './detail-claim.component.scss',
 })
 export class DetailClaimComponent {
-	private readonly controlContainer = inject(ControlContainer);
-	form?: FormGroup;
-
-	ngOnInit(): void {
-		this.form = this.controlContainer.control?.get('detailClaim') as FormGroup;
-	}
+	protected readonly form = inject(ClaimBookForm).form;
 }

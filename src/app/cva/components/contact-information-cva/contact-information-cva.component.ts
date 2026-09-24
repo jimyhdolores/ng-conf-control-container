@@ -1,79 +1,27 @@
-import { Component, forwardRef, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import {
-	AbstractControl,
-	ControlValueAccessor,
-	NG_VALIDATORS,
-	NG_VALUE_ACCESSOR,
-	NonNullableFormBuilder,
-	ReactiveFormsModule,
-	ValidationErrors,
-	Validator,
-	Validators,
-} from '@angular/forms';
+import { Component, model } from '@angular/core';
+import { email, form, FormField, FormValueControl, required } from '@angular/forms/signals';
 import { TuiError, TuiInput } from '@taiga-ui/core';
 import { IContactInformationCva } from '../../models/cva-model.interface';
 
-@Component({
-    selector: 'app-contact-information-cva',
-    imports: [TuiInput, ReactiveFormsModule, TuiError],
-    templateUrl: './contact-information-cva.component.html',
-    styleUrl: './contact-information-cva.component.scss',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => ContactInformationCvaComponent),
-            multi: true,
-        },
-        {
-            provide: NG_VALIDATORS,
-            useExisting: forwardRef(() => ContactInformationCvaComponent),
-            multi: true,
-        },
-    ]
-})
-export class ContactInformationCvaComponent implements ControlValueAccessor, Validator, OnInit {
-	private readonly _fb = inject(NonNullableFormBuilder);
-	private _onChanged: Function = (_value: IContactInformationCva) => {};
-	private _onTouch: Function = (_value: IContactInformationCva) => {};
+const REQUIRED_MESSAGE = 'Este campo es requerido';
 
-	form = this._fb.group({
-		email: ['', [Validators.required, Validators.email]],
-		phone: ['', Validators.required],
-		address: ['', Validators.required],
+@Component({
+	selector: 'app-contact-information-cva',
+	imports: [TuiInput, FormField, TuiError],
+	templateUrl: './contact-information-cva.component.html',
+	styleUrl: './contact-information-cva.component.scss',
+})
+export class ContactInformationCvaComponent implements FormValueControl<IContactInformationCva> {
+	readonly value = model<IContactInformationCva>({
+		email: '',
+		phone: '',
+		address: '',
 	});
 
-	ngOnInit(): void {
-		this.form.valueChanges.subscribe(() => {
-			const value = this.form.value;
-			this._onChanged(value);
-			this._onTouch(value);
-		});
-	}
-
-	validate(_control: AbstractControl): ValidationErrors | null {
-		return this.form.valid ? null : { contactInformation: true };
-	}
-
-	registerOnValidatorChange(fn: () => void): void {
-		this._onChanged = fn;
-	}
-
-	writeValue(obj: IContactInformationCva): void {
-		if (obj) {
-			this.form.setValue(obj);
-		}
-	}
-
-	registerOnChange(fn: Function): void {
-		this._onChanged = fn;
-	}
-
-	registerOnTouched(fn: Function): void {
-		this._onTouch = fn;
-	}
-
-	setDisabledState(isDisabled: boolean): void {
-		isDisabled ? this.form.disable() : this.form.enable();
-	}
+	protected readonly form = form(this.value, (path) => {
+		required(path.email, { message: REQUIRED_MESSAGE });
+		email(path.email, { message: 'Ingrese un email valido' });
+		required(path.phone, { message: REQUIRED_MESSAGE });
+		required(path.address, { message: REQUIRED_MESSAGE });
+	});
 }

@@ -2,16 +2,16 @@
 
 <div class="claim-book-page">
 	<div class="group1">
-		<form [formGroup]="form" class="claim-book-page__form" (ngSubmit)="save()">
+		<form class="claim-book-page__form" (submit)="save()">
 			<router-outlet />
 		</form>
 		<div>
-			<button size="s" tuiButton type="button" [routerLink]="routerPath">Siguiente</button>
-			<button size="s" tuiButton type="button" [routerLink]="routerBackPath">Atras</button>
+			<button size="s" tuiButton type="button" [routerLink]="routerPath()">Siguiente</button>
+			<button size="s" tuiButton type="button" [routerLink]="routerBackPath()">Atras</button>
 		</div>
 	</div>
 
 	<section class="claim-book-page__json">
-		<span>{{ form.value | json }}</span>
+		<span>{{ value() | json }}</span>
 	</section>
 </div>
