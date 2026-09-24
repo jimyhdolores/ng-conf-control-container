@@ -11,6 +11,6 @@ import { InputFileComponent } from '../input-file/input-file.component';
 	templateUrl: './detail-claim.component.html',
 	styleUrl: './detail-claim.component.scss',
 })
-export class DetailClaimComponent {
+export default class DetailClaimComponent {
 	protected readonly form = inject(ClaimBookForm).form;
 }

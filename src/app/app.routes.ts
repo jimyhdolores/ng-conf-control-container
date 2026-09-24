@@ -1,10 +1,5 @@
 import { Routes } from '@angular/router';
-import { ContactInformationComponent } from './control-container/components/contact-information/contact-information.component';
-import { DetailClaimComponent } from './control-container/components/detail-claim/detail-claim.component';
-import { PersonalInformationComponent } from './control-container/components/personal-information/personal-information.component';
-import { ControlContainerComponent } from './control-container/control-container.component';
 import { ClaimBookPageComponent } from './control-container/pages/claim-book-page/claim-book-page.component';
-import ClaimBookStepPageComponent from './control-container/pages/claim-book-step-page/claim-book-step-page.component';
 import { CvaComponent } from './cva/cva.component';
 import { ClaimBookCvaPageComponent } from './cva/pages/claim-book-cva-page/claim-book-cva-page.component';
 
@@ -27,7 +22,7 @@ export const routes: Routes = [
 	},
 	{
 		path: 'control-container',
-		component: ControlContainerComponent,
+		loadComponent: () => import('./control-container/control-container.component'),
 		children: [
 			{
 				path: 'claim-book',
@@ -35,20 +30,22 @@ export const routes: Routes = [
 			},
 			{
 				path: 'claim-book-step',
-				component: ClaimBookStepPageComponent,
+				loadComponent: () => import('./control-container/pages/claim-book-step-page/claim-book-step-page.component'),
 				children: [
 					{
 						path: 'personal-information',
-						component: PersonalInformationComponent,
+						loadComponent: () =>
+							import('./control-container/components/personal-information/personal-information.component'),
 					},
 
 					{
 						path: 'contact-information',
-						component: ContactInformationComponent,
+						loadComponent: () =>
+							import('./control-container/components/contact-information/contact-information.component'),
 					},
 					{
 						path: 'detail-claim',
-						component: DetailClaimComponent,
+						loadComponent: () => import('./control-container/components/detail-claim/detail-claim.component'),
 					},
 					{
 						path: '',

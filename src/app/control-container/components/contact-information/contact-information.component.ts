@@ -9,6 +9,6 @@ import { ClaimBookForm } from '../../claim-book.form';
 	templateUrl: './contact-information.component.html',
 	styleUrl: './contact-information.component.scss',
 })
-export class ContactInformationComponent {
+export default class ContactInformationComponent {
 	protected readonly form = inject(ClaimBookForm).form;
 }
