@@ -1,10 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ControlContainer, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TuiInputModule, TuiTextareaModule } from '@taiga-ui/legacy';
 @Component({
     selector: 'app-contact-information',
     imports: [TuiInputModule, TuiTextareaModule, ReactiveFormsModule],
     templateUrl: './contact-information.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './contact-information.component.scss'
 })
 export class ContactInformationComponent {

@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import type { AbstractControl, ValidatorFn } from '@angular/forms';
 import { ControlContainer, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TuiValidationError } from '@taiga-ui/cdk';
@@ -20,6 +20,7 @@ const maxFilesLength = (maxLength: number): ValidatorFn => {
     selector: 'app-input-file',
     imports: [AsyncPipe, ReactiveFormsModule, TuiError, TuiFieldErrorPipe, TuiFiles],
     templateUrl: './input-file.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-file.component.scss'
 })
 export class InputFileComponent {

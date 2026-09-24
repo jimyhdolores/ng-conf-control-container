@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { TuiButton } from '@taiga-ui/core';
@@ -12,6 +12,7 @@ import { InputFileComponent } from '../../components/input-file/input-file.compo
     imports: [RouterOutlet, RouterLink, TuiButton, ReactiveFormsModule, JsonPipe, InputFileComponent],
     templateUrl: './claim-book-step-page.component.html',
     styleUrl: './claim-book-step-page.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
     providers: [
         tuiValidationErrorsProvider({
             required: 'Este campo es requerido',

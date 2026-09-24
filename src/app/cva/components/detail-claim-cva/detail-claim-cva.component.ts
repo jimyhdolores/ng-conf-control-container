@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, forwardRef, inject, OnInit } from '@angular/core';
+import { Component, forwardRef, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {
 	AbstractControl,
 	ControlValueAccessor,
@@ -20,6 +20,7 @@ import { IDetailClaimCva } from '../../models/cva-model.interface';
     imports: [TuiInputModule, TuiTextareaModule, ReactiveFormsModule, TuiError, TuiFieldErrorPipe, AsyncPipe],
     templateUrl: './detail-claim-cva.component.html',
     styleUrl: './detail-claim-cva.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

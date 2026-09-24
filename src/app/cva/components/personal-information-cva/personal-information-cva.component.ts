@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, forwardRef, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, OnInit } from '@angular/core';
 import {
 	AbstractControl,
 	ControlValueAccessor,
@@ -11,27 +11,28 @@ import {
 	Validator,
 	Validators,
 } from '@angular/forms';
-import { TuiError, TuiLabel } from '@taiga-ui/core';
+import { TuiError } from '@taiga-ui/core';
 import { TuiFieldErrorPipe } from '@taiga-ui/kit';
 import { TuiInputModule } from '@taiga-ui/legacy';
 import { IPersonalInformationCva } from '../../models/cva-model.interface';
 @Component({
-    selector: 'app-personal-information-cva',
-    imports: [TuiInputModule, ReactiveFormsModule, TuiFieldErrorPipe, TuiError, TuiLabel, AsyncPipe],
-    templateUrl: './personal-information-cva.component.html',
-    styleUrl: './personal-information-cva.component.scss',
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => PersonalInformationCvaComponent),
-            multi: true,
-        },
-        {
-            provide: NG_VALIDATORS,
-            useExisting: forwardRef(() => PersonalInformationCvaComponent),
-            multi: true,
-        },
-    ]
+	selector: 'app-personal-information-cva',
+	imports: [TuiInputModule, ReactiveFormsModule, TuiFieldErrorPipe, TuiError, AsyncPipe],
+	templateUrl: './personal-information-cva.component.html',
+	styleUrl: './personal-information-cva.component.scss',
+	changeDetection: ChangeDetectionStrategy.Eager,
+	providers: [
+		{
+			provide: NG_VALUE_ACCESSOR,
+			useExisting: forwardRef(() => PersonalInformationCvaComponent),
+			multi: true,
+		},
+		{
+			provide: NG_VALIDATORS,
+			useExisting: forwardRef(() => PersonalInformationCvaComponent),
+			multi: true,
+		},
+	],
 })
 export class PersonalInformationCvaComponent implements ControlValueAccessor, Validator, OnInit {
 	private readonly _fb = inject(NonNullableFormBuilder);

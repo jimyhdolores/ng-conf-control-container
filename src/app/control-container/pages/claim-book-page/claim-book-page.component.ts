@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TuiButton } from '@taiga-ui/core';
 import { tuiValidationErrorsProvider } from '@taiga-ui/kit';
@@ -30,6 +30,7 @@ import { PersonalInformationComponent } from '../../components/personal-informat
         }),
     ],
     templateUrl: './claim-book-page.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './claim-book-page.component.scss'
 })
 export class ClaimBookPageComponent {

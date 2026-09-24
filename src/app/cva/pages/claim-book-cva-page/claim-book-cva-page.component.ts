@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { TuiButton } from '@taiga-ui/core';
 import { tuiValidationErrorsProvider } from '@taiga-ui/kit';
@@ -29,6 +29,7 @@ import { IClaimCvaForm } from '../../models/cva-model-fomr.interface';
         }),
     ],
     templateUrl: './claim-book-cva-page.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './claim-book-cva-page.component.scss'
 })
 export class ClaimBookCvaPageComponent {
