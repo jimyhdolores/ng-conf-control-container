@@ -1,4 +1,3 @@
-import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, inject, OnInit } from '@angular/core';
 import {
 	AbstractControl,
@@ -11,13 +10,11 @@ import {
 	Validator,
 	Validators,
 } from '@angular/forms';
-import { TuiError } from '@taiga-ui/core';
-import { TuiFieldErrorPipe } from '@taiga-ui/kit';
-import { TuiInputModule } from '@taiga-ui/legacy';
+import { TuiError, TuiInput } from '@taiga-ui/core';
 import { IPersonalInformationCva } from '../../models/cva-model.interface';
 @Component({
 	selector: 'app-personal-information-cva',
-	imports: [TuiInputModule, ReactiveFormsModule, TuiFieldErrorPipe, TuiError, AsyncPipe],
+	imports: [TuiInput, ReactiveFormsModule, TuiError],
 	templateUrl: './personal-information-cva.component.html',
 	styleUrl: './personal-information-cva.component.scss',
 	changeDetection: ChangeDetectionStrategy.Eager,

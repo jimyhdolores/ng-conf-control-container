@@ -1,9 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { TuiButton } from '@taiga-ui/core';
-import { tuiValidationErrorsProvider } from '@taiga-ui/kit';
-import { of } from 'rxjs';
+import { TuiButton, tuiValidationErrorsProvider } from '@taiga-ui/core';
 import { ContactInformationCvaComponent } from '../../components/contact-information-cva/contact-information-cva.component';
 import { DetailClaimCvaComponent } from '../../components/detail-claim-cva/detail-claim-cva.component';
 import { PersonalInformationCvaComponent } from '../../components/personal-information-cva/personal-information-cva.component';
@@ -25,7 +23,7 @@ import { IClaimCvaForm } from '../../models/cva-model-fomr.interface';
             email: 'Ingrese un email valido',
             minlength: ({ requiredLength }: {
                 requiredLength: string;
-            }) => of(`Logitud minima — ${requiredLength}`),
+            }) => `Logitud minima — ${requiredLength}`,
         }),
     ],
     templateUrl: './claim-book-cva-page.component.html',

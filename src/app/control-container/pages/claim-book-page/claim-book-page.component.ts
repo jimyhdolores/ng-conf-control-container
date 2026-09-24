@@ -1,9 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { TuiButton } from '@taiga-ui/core';
-import { tuiValidationErrorsProvider } from '@taiga-ui/kit';
-import { of } from 'rxjs';
+import { TuiButton, tuiValidationErrorsProvider } from '@taiga-ui/core';
 import { ContactInformationComponent } from '../../components/contact-information/contact-information.component';
 import { DetailClaimComponent } from '../../components/detail-claim/detail-claim.component';
 import { InputFileComponent } from '../../components/input-file/input-file.component';
@@ -26,7 +24,7 @@ import { PersonalInformationComponent } from '../../components/personal-informat
             email: 'Ingrese un email valido',
             minlength: ({ requiredLength }: {
                 requiredLength: string;
-            }) => of(`Logitud minima — ${requiredLength}`),
+            }) => `Logitud minima — ${requiredLength}`,
         }),
     ],
     templateUrl: './claim-book-page.component.html',

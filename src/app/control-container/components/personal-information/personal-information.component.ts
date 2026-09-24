@@ -1,12 +1,9 @@
-import { AsyncPipe } from '@angular/common';
 import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ControlContainer, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { TuiError, TuiLabel } from '@taiga-ui/core';
-import { TuiFieldErrorPipe } from '@taiga-ui/kit';
-import { TuiInputModule } from '@taiga-ui/legacy';
+import { TuiError, TuiInput } from '@taiga-ui/core';
 @Component({
     selector: 'app-personal-information',
-    imports: [TuiInputModule, ReactiveFormsModule, TuiFieldErrorPipe, TuiError, TuiLabel, AsyncPipe],
+    imports: [TuiInput, ReactiveFormsModule, TuiError],
     templateUrl: './personal-information.component.html',
     changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './personal-information.component.scss'

@@ -1,27 +1,23 @@
 import { JsonPipe } from '@angular/common';
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
-import { TuiButton } from '@taiga-ui/core';
-import { tuiValidationErrorsProvider } from '@taiga-ui/kit';
-import { filter, of } from 'rxjs';
-import { InputFileComponent } from '../../components/input-file/input-file.component';
+import { TuiButton, tuiValidationErrorsProvider } from '@taiga-ui/core';
+import { filter } from 'rxjs';
 
 @Component({
-    selector: 'app-claim-book-step-page',
-    imports: [RouterOutlet, RouterLink, TuiButton, ReactiveFormsModule, JsonPipe, InputFileComponent],
-    templateUrl: './claim-book-step-page.component.html',
-    styleUrl: './claim-book-step-page.component.scss',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    providers: [
-        tuiValidationErrorsProvider({
-            required: 'Este campo es requerido',
-            email: 'Ingrese un email valido',
-            minlength: ({ requiredLength }: {
-                requiredLength: string;
-            }) => of(`Logitud minima — ${requiredLength}`),
-        }),
-    ]
+	selector: 'app-claim-book-step-page',
+	imports: [RouterOutlet, RouterLink, TuiButton, ReactiveFormsModule, JsonPipe],
+	templateUrl: './claim-book-step-page.component.html',
+	styleUrl: './claim-book-step-page.component.scss',
+	changeDetection: ChangeDetectionStrategy.Eager,
+	providers: [
+		tuiValidationErrorsProvider({
+			required: 'Este campo es requerido',
+			email: 'Ingrese un email valido',
+			minlength: ({ requiredLength }: { requiredLength: string }) => `Logitud minima — ${requiredLength}`,
+		}),
+	],
 })
 export default class ClaimBookStepPageComponent {
 	private readonly _fb = inject(NonNullableFormBuilder);

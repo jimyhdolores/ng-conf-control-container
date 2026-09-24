@@ -2,20 +2,20 @@
 	<h1 class="contact-information__title">Datos de Contacto</h1>
 	@if (form) {
 		<form class="contact-information__form" [formGroup]="form">
-			<tui-input tuiTextfieldSize="m" formControlName="email">
-				Email
-				<input autocomplete="email" tuiTextfieldLegacy type="email" />
-			</tui-input>
+			<tui-textfield tuiTextfieldSize="m">
+				<label tuiLabel>Email</label>
+				<input tuiInput autocomplete="email" formControlName="email" type="email" />
+			</tui-textfield>
 
-			<tui-input tuiTextfieldSize="m" formControlName="phone">
-				Celular
-				<input tuiTextfieldLegacy type="text" />
-			</tui-input>
+			<tui-textfield tuiTextfieldSize="m">
+				<label tuiLabel>Celular</label>
+				<input tuiInput formControlName="phone" type="text" />
+			</tui-textfield>
 
-			<tui-input tuiTextfieldSize="m" formControlName="address">
-				Dirección
-				<input tuiTextfieldLegacy type="text" />
-			</tui-input>
+			<tui-textfield tuiTextfieldSize="m">
+				<label tuiLabel>Dirección</label>
+				<input tuiInput formControlName="address" type="text" />
+			</tui-textfield>
 		</form>
 	}
 </div>

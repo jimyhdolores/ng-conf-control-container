@@ -1,4 +1,3 @@
-import { AsyncPipe } from '@angular/common';
 import { Component, forwardRef, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {
 	AbstractControl,
@@ -11,13 +10,12 @@ import {
 	Validator,
 	Validators,
 } from '@angular/forms';
-import { TuiError } from '@taiga-ui/core';
-import { TuiFieldErrorPipe } from '@taiga-ui/kit';
-import { TuiInputModule, TuiTextareaModule } from '@taiga-ui/legacy';
+import { TuiError, TuiInput } from '@taiga-ui/core';
+import { TuiTextarea } from '@taiga-ui/kit';
 import { IDetailClaimCva } from '../../models/cva-model.interface';
 @Component({
     selector: 'app-detail-claim-cva',
-    imports: [TuiInputModule, TuiTextareaModule, ReactiveFormsModule, TuiError, TuiFieldErrorPipe, AsyncPipe],
+    imports: [TuiInput, TuiTextarea, ReactiveFormsModule, TuiError],
     templateUrl: './detail-claim-cva.component.html',
     styleUrl: './detail-claim-cva.component.scss',
     changeDetection: ChangeDetectionStrategy.Eager,

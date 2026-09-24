@@ -1,4 +1,3 @@
-import { AsyncPipe } from '@angular/common';
 import { Component, forwardRef, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {
 	AbstractControl,
@@ -11,14 +10,12 @@ import {
 	Validator,
 	Validators,
 } from '@angular/forms';
-import { TuiError } from '@taiga-ui/core';
-import { TuiFieldErrorPipe } from '@taiga-ui/kit';
-import { TuiInputModule, TuiTextareaModule } from '@taiga-ui/legacy';
+import { TuiError, TuiInput } from '@taiga-ui/core';
 import { IContactInformationCva } from '../../models/cva-model.interface';
 
 @Component({
     selector: 'app-contact-information-cva',
-    imports: [TuiInputModule, TuiTextareaModule, ReactiveFormsModule, TuiError, TuiFieldErrorPipe, AsyncPipe],
+    imports: [TuiInput, ReactiveFormsModule, TuiError],
     templateUrl: './contact-information-cva.component.html',
     styleUrl: './contact-information-cva.component.scss',
     changeDetection: ChangeDetectionStrategy.Eager,

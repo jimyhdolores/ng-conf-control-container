@@ -1,9 +1,10 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ControlContainer, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { TuiInputModule, TuiTextareaModule } from '@taiga-ui/legacy';
+import { TuiInput } from '@taiga-ui/core';
+import { TuiTextarea } from '@taiga-ui/kit';
 @Component({
     selector: 'app-detail-claim',
-    imports: [TuiInputModule, TuiTextareaModule, ReactiveFormsModule],
+    imports: [TuiInput, TuiTextarea, ReactiveFormsModule],
     templateUrl: './detail-claim.component.html',
     changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './detail-claim.component.scss'
